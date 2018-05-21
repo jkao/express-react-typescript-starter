@@ -1,15 +1,15 @@
 import * as express from 'express';
 import * as proxy from 'http-proxy-middleware';
 
-const SERVER_PORT: number | undefined = (Number.parseInt(<string> process.env['SERVER_PORT']));
-const API_SERVER_PORT: number | undefined = (Number.parseInt(<string> process.env['API_SERVER_PORT']));
+const FRONTEND_SERVER_PORT: number | undefined = (Number.parseInt(<string> process.env['FRONTEND_SERVER_PORT']));
 const SERVER_ENV: string | undefined = process.env['SERVER_ENV'];
+const API_SERVER_HOST: string | undefined = process.env['API_SERVER_HOST'];
 
-if (!SERVER_PORT) {
-  throw 'SERVER_PORT expected'
+if (!FRONTEND_SERVER_PORT) {
+  throw 'FRONTEND_SERVER_PORT expected'
 }
-if (!API_SERVER_PORT) {
-  throw 'API_SERVER_PORT expected'
+if (!API_SERVER_HOST) {
+  throw 'API_SERVER_HOST expected'
 }
 if (SERVER_ENV !== 'dev' && SERVER_ENV !== 'prod') {
   throw 'SERVER_ENV must be "dev" or "prod"'
@@ -23,6 +23,6 @@ const app = express();
 
 /* routes */
 app.use(express.static('public'));
-app.use('/api', proxy({ target: `http://localhost:${API_SERVER_PORT}`, changeOrigin: true }));
+app.use('/api', proxy({ target: API_SERVER_HOST, changeOrigin: true }));
 
-app.listen(SERVER_PORT);
+app.listen(FRONTEND_SERVER_PORT);

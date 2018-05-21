@@ -1,13 +1,13 @@
 .PHONY: build dev prod-server
 
-SERVER_PORT ?= 3001
+API_SERVER_PORT ?= 3001
 
 build:
 	yarn install
 	yarn run tsc
 
 dev-server: build
-	SERVER_PORT=$(SERVER_PORT) SERVER_ENV=dev node ./dist/server.js
+	API_SERVER_PORT=$(API_SERVER_PORT) SERVER_ENV=dev node ./dist/server.js
 
 prod-server: build
-	SERVER_PORT=$(SERVER_PORT) SERVER_ENV=prod node ./dist/server.js
+	API_SERVER_PORT=$(API_SERVER_PORT) SERVER_ENV=prod node ./dist/server.js

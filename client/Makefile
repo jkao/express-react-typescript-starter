@@ -1,7 +1,9 @@
 .PHONY: build-frontend-dev build-server-dev dev-server build
 
-SERVER_PORT ?= 3000
+FRONTEND_SERVER_PORT ?= 3000
+
 API_SERVER_PORT ?= 3001
+API_SERVER_HOST ?= http://localhost:$(API_SERVER_PORT)
 
 build-frontend-dev:
 	yarn run webpack --mode development --config webpack/dev.config.js
@@ -13,6 +15,6 @@ build: build-frontend-dev build-server-dev
 
 dev-server: build
 	SERVER_ENV=dev \
-		SERVER_PORT=$(SERVER_PORT) \
- 		API_SERVER_PORT=$(API_SERVER_PORT) \
+		FRONTEND_SERVER_PORT=$(FRONTEND_SERVER_PORT) \
+ 		API_SERVER_HOST=$(API_SERVER_HOST) \
   	node ./dist/server.js

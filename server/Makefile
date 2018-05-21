@@ -1,6 +1,6 @@
 .PHONY: build dev prod-server
 
-SERVER_PORT ?= 3000
+SERVER_PORT ?= 3001
 
 build:
 	yarn install

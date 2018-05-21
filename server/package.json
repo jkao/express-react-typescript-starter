@@ -1,13 +1,13 @@
 {
-  "name": "ab-testing-ui-server",
+  "name": "server",
   "version": "1.0.0",
-  "description": "AB Testing UI Server",
+  "description": "Barebones Node TypeScript Server",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "jeffrey.kao@soundcloud.com",
+  "author": "jeff.kao.000@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@types/compression": "0.0.36",
@@ -15,8 +15,5 @@
     "compression": "^1.7.2",
     "express": "^4.16.3",
     "typescript": "^2.8.3"
-  },
-  "devDependencies": {
-    "ts-node": "^6.0.3"
   }
 }

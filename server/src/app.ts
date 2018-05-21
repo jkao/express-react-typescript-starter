@@ -12,6 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 /* Routes */
-app.get('/', homeController.index);
+app.get('/api', homeController.index);
 
 export default app;

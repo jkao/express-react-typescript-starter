@@ -5,14 +5,14 @@ const indexHTML = require('html-webpack-plugin');
 const indexHTMLPlugin = new indexHTML({
   hash: true,
   template: 'src/index.html',
-  filename: '../dist/index.html',
+  filename: '../public/index.html',
   title: 'Client App'
 });
 
 module.exports = {
   entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, '..', 'dist'),
+    path: path.resolve(__dirname, '..', 'public'),
     filename: 'bundle-[hash].js'
   },
   resolve: {

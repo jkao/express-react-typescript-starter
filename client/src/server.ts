@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as proxy from 'http-proxy-middleware';
+import * as compression from 'compression';
 
 const FRONTEND_SERVER_PORT: number | undefined = (Number.parseInt(<string> process.env['FRONTEND_SERVER_PORT']));
 const SERVER_ENV: string | undefined = process.env['SERVER_ENV'];
@@ -20,6 +21,9 @@ if (SERVER_ENV !== 'dev' && SERVER_ENV !== 'prod') {
  * otherwise serves static assets.
  */
 const app = express();
+
+/* middleware */
+app.use(compression());
 
 /* routes */
 app.use(express.static('public'));

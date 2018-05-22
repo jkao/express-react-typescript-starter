@@ -2,6 +2,9 @@
 
 API_SERVER_PORT ?= 3001
 
+lint:
+	yarn run tslint -c tslint.json 'src/**/*.ts'
+
 build:
 	yarn install
 	yarn run tsc

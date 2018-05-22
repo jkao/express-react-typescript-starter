@@ -1,4 +1,4 @@
-import { BaseJson, BaseApi } from '../../base';
+import { BaseJson, BaseApi } from '../base';
 
 export interface TestJson extends BaseJson {
   message: string;

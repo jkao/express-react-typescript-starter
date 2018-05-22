@@ -1,11 +1,12 @@
-import { Request, Response } from 'express';
+import { BaseJson } from '../shared/api/base';
 import { Test } from '../shared/api/home/test';
-import { BaseJson } from '../shared/base';
+
+import { Response, Request } from 'express';
 
 export const index = (req: Request, res: Response) => {
   const payload: BaseJson = new Test('testMessage').json;
   res.json({
-     headers: req.headers,
-     payload
+    payload,
+    headers: req.headers,
   });
 };

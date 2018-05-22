@@ -1,7 +1,7 @@
 export interface BaseJson {}
 
 export abstract class BaseApi {
-  json: BaseJson;
+  public json: BaseJson;
   constructor(json: BaseJson) {
     this.json = json;
   };

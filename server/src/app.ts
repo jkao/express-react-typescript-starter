@@ -1,7 +1,6 @@
-import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import * as compression from 'compression';
-import * as bodyParser from "body-parser";
-
+import * as express from 'express';
 import * as homeController from './controllers/home';
 
 const app = express();

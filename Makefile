@@ -9,4 +9,4 @@ build:
 	make -C client build
 
 dev-servers:
-	make -C server dev-server & make -C client dev-server && fg
+	concurrently --names "API,FRONTEND" 'make -C server dev-server' 'make -C client dev-server'

@@ -2,8 +2,8 @@ import * as express from 'express';
 import * as proxy from 'http-proxy-middleware';
 import * as compression from 'compression';
 
-const FRONTEND_SERVER_PORT: number | undefined =
-  (Number.parseInt(<string> process.env['FRONTEND_SERVER_PORT']));
+const FRONTEND_SERVER_PORT: number =
+  (Number.parseInt(process.env['FRONTEND_SERVER_PORT'] as string));
 const SERVER_ENV: string | undefined = process.env['SERVER_ENV'];
 const API_SERVER_HOST: string | undefined = process.env['API_SERVER_HOST'];
 

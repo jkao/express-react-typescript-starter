@@ -1,11 +1,15 @@
 {
     "defaultSeverity": "error",
     "extends": [
+        "tslint:latest",
         "tslint-config-airbnb"
     ],
     "jsRules": {},
     "rules": {
-      "no-string-throw": true
+      "no-string-throw": true,
+      "no-console": false,
+      "ordered-imports": false,
+      "object-literal-sort-keys": false
     },
     "rulesDirectory": []
 }

@@ -9,13 +9,13 @@ import {
 } from './shared/logging/logger';
 
 const API_SERVER_PORT: number = (Number.parseInt(process.env.API_SERVER_PORT as string));
-const SERVER_ENV: string | undefined = process.env.SERVER_ENV;
+const NODE_ENV: string | undefined = process.env.NODE_ENV;
 
 if (!API_SERVER_PORT) {
   throw new Error('API_SERVER_PORT expected');
 }
-if (SERVER_ENV !== 'dev' && SERVER_ENV !== 'prod') {
-  throw new Error('SERVER_ENV must be "dev" or "prod"');
+if (NODE_ENV !== 'development' && NODE_ENV !== 'production') {
+  throw new Error('NODE_ENV must be "development" or "production"');
 }
 
 /*
@@ -42,7 +42,7 @@ app.listen(
     logger.info(
       'App is running at http://localhost:%d in %s mode\n',
       API_SERVER_PORT,
-      SERVER_ENV,
+      NODE_ENV,
     );
     logger.info('Press CTRL-C to stop\n');
   },

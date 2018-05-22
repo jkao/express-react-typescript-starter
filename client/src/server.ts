@@ -5,7 +5,7 @@ import { errorMiddleware, requestMiddleware } from './shared/logging/logger';
 
 const FRONTEND_SERVER_PORT: number =
   (Number.parseInt(process.env.FRONTEND_SERVER_PORT as string));
-const SERVER_ENV: string | undefined = process.env.SERVER_ENV;
+const NODE_ENV: string | undefined = process.env.NODE_ENV;
 const API_SERVER_HOST: string | undefined = process.env.API_SERVER_HOST;
 
 if (!FRONTEND_SERVER_PORT) {
@@ -14,8 +14,8 @@ if (!FRONTEND_SERVER_PORT) {
 if (!API_SERVER_HOST) {
   throw new Error('API_SERVER_HOST expected');
 }
-if (SERVER_ENV !== 'dev' && SERVER_ENV !== 'prod') {
-  throw new Error('SERVER_ENV must be "dev" or "prod"');
+if (NODE_ENV !== 'development' && NODE_ENV !== 'production') {
+  throw new Error('NODE_ENV must be "development" or "production"');
 }
 
 /*

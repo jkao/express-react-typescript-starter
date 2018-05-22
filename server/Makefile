@@ -10,7 +10,7 @@ build:
 	yarn run tsc
 
 dev-server: build
-	API_SERVER_PORT=$(API_SERVER_PORT) SERVER_ENV=dev node ./dist/server.js
+	API_SERVER_PORT=$(API_SERVER_PORT) NODE_ENV=development node ./dist/server.js
 
 prod-server: build
-	API_SERVER_PORT=$(API_SERVER_PORT) SERVER_ENV=prod node ./dist/server.js
+	API_SERVER_PORT=$(API_SERVER_PORT) NODE_ENV=production node ./dist/server.js

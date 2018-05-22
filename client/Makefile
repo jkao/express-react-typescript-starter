@@ -17,7 +17,7 @@ build-server-dev:
 build: build-frontend-dev build-server-dev
 
 dev-server: build
-	SERVER_ENV=dev \
+	NODE_ENV=development \
 		FRONTEND_SERVER_PORT=$(FRONTEND_SERVER_PORT) \
  		API_SERVER_HOST=$(API_SERVER_HOST) \
   	node ./dist/server.js

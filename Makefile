@@ -1,4 +1,8 @@
-.PHONY: build
+.PHONY: build dev-servers lint
+
+lint:
+	make -C server lint
+	make -C client lint
 
 build:
 	make -C server build

@@ -5,6 +5,9 @@ FRONTEND_SERVER_PORT ?= 3000
 API_SERVER_PORT ?= 3001
 API_SERVER_HOST ?= http://localhost:$(API_SERVER_PORT)
 
+lint:
+	yarn run tslint -c tslint.json 'src/**/*.{ts,tsx}'
+
 build-frontend-dev:
 	yarn run webpack --mode development --config webpack/dev.config.js
 

@@ -10,6 +10,7 @@ const indexHTMLPlugin = new indexHTML({
 });
 
 module.exports = {
+  mode: 'development',
   entry: './src/index.tsx',
   output: {
     path: path.resolve(__dirname, '..', 'public'),

@@ -11,13 +11,24 @@ lint:
 build-frontend-dev:
 	yarn run webpack --mode development --config webpack/dev.config.js
 
-build-server-dev:
+build-server:
 	yarn run tsc
 
-build: build-frontend-dev build-server-dev
+build-dev: build-frontend-dev build-server
 
-dev-server: build
+dev-server: build-dev
 	NODE_ENV=development \
+		FRONTEND_SERVER_PORT=$(FRONTEND_SERVER_PORT) \
+ 		API_SERVER_HOST=$(API_SERVER_HOST) \
+  	node ./dist/server.js
+
+build-frontend-prod:
+	yarn run webpack --mode production --config webpack/prod.config.js
+
+build-prod: build-frontend-prod build-server
+
+prod-server: build-prod
+	NODE_ENV=production \
 		FRONTEND_SERVER_PORT=$(FRONTEND_SERVER_PORT) \
  		API_SERVER_HOST=$(API_SERVER_HOST) \
   	node ./dist/server.js

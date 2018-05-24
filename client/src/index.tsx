@@ -4,10 +4,13 @@ import { createBrowserHistory } from 'history';
 import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router';
+import { Link } from 'react-router-dom';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 
-import App from './components/App';
-import { todosReducer } from './reducers/todos-reducer';
+import '@blueprintjs/core/lib/css/blueprint.css';
+
+import { App, About } from './components';
+import { todosReducer } from './reducers';
 
 const history = createBrowserHistory();
 
@@ -31,8 +34,13 @@ const renderedHTML = (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div>
+        <div>
+          <Link to="/">Root</Link>
+          <Link to="/about">About</Link>
+        </div>
+
         <Route exact={true} path="/" component={App} />
-        <Route exact={true} path="/test" component={App} />
+        <Route exact={true} path="/about" component={About} />
       </div>
     </ConnectedRouter>
   </Provider>

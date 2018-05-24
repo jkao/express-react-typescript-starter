@@ -1,6 +1,10 @@
 {
     "extends": [
+        "../tslint.json",
         "tslint-react",
-        "../tslint.json"
-    ]
+        "tslint-blueprint"
+    ],
+    "rules": {
+      "no-submodule-imports": ["@blueprintjs/core"]
+    }
 }

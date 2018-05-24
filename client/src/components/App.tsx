@@ -1,15 +1,12 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { TextArea } from '@blueprintjs/core';
 
 class App extends React.Component<{}, {}> {
   public render() {
     return (
       <div>
-        APP
-        <div>
-          <Link to="/">Root</Link>
-          <Link to="/test">Test</Link>
-        </div>
+        <h1>APP</h1>
+        <TextArea>This is a text box</TextArea>
       </div>
     );
   }

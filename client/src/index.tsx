@@ -35,12 +35,12 @@ const renderedHTML = (
     <ConnectedRouter history={history}>
       <div>
         <div>
-          <Link to="/">Root</Link>
-          <Link to="/about">About</Link>
+          <Link to='/'>Root</Link>
+          <Link to='/about'>About</Link>
         </div>
 
-        <Route exact={true} path="/" component={App} />
-        <Route exact={true} path="/about" component={About} />
+        <Route exact={true} path='/' component={App} />
+        <Route exact={true} path='/about' component={About} />
       </div>
     </ConnectedRouter>
   </Provider>

@@ -4,11 +4,11 @@ export interface TextJson extends BaseJson {
   message: string;
 }
 
-export class Text extends BaseApi {
+export class Text extends BaseApi<TextJson> {
   message: string;
 
   constructor(message: string) {
-    super({ message } as TextJson);
+    super({ message });
     this.message = message;
   }
 }

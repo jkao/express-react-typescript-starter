@@ -1,8 +1,8 @@
 export interface BaseJson {}
 
-export abstract class BaseApi {
-  public json: BaseJson;
-  constructor(json: BaseJson) {
+export abstract class BaseApi<T extends BaseJson> {
+  public json: T;
+  constructor(json: T) {
     this.json = json;
   };
 }

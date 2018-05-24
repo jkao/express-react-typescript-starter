@@ -5,7 +5,7 @@ export interface TextListJson extends BaseJson {
   texts: TextJson[];
 }
 
-export class TextList extends BaseApi {
+export class TextList extends BaseApi<TextListJson> {
   texts: Text[];
 
   constructor(texts: Text[]) {

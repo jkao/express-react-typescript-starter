@@ -17,5 +17,3 @@ export const todosReducer: Reducer<any> = (state = {}, action: ITodoAction) => {
       return state;
   }
 };
-
-export default todosReducer;

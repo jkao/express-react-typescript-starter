@@ -9,8 +9,9 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 
 import '@blueprintjs/core/lib/css/blueprint.css';
 
-import { App, About } from './components';
-import { todosReducer } from './reducers';
+import { App } from './components/App';
+import { About } from './components/About';
+import { todosReducer } from './reducers/todos-reducer';
 
 const history = createBrowserHistory();
 

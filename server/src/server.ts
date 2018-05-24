@@ -32,6 +32,9 @@ app.use(requestMiddleware);
 /* Routes */
 app.get('/api', homeController.index);
 
+app.get('/api/texts', homeController.listTexts);
+app.post('/api/texts', homeController.createText);
+
 /* Post-routes middleware */
 app.use(errorMiddleware);
 

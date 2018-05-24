@@ -8,7 +8,7 @@ const consoleTransport =
     json: true,
     colorize: true,
     handleExceptions: true,
-    stringify: production ? jsonFormatter : undefined,
+    stringify: jsonFormatter,
   })
 
 export const logger = new (winston.Logger)({

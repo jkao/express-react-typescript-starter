@@ -1,13 +1,14 @@
 import { BaseJson, BaseApi } from '../base';
 
-export interface TestJson extends BaseJson {
+export interface TextJson extends BaseJson {
   message: string;
 }
 
-export class Test extends BaseApi {
+export class Text extends BaseApi {
   message: string;
+
   constructor(message: string) {
-    super({ message });
+    super({ message } as TextJson);
     this.message = message;
   }
 }

@@ -23,6 +23,7 @@ class App extends React.Component<AppProps, AppState> {
 
   addText = () => {
     this.props.addTextDispatch(this.state.text);
+    this.setState({ text: '' });
   }
 
   onTextChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -54,7 +55,7 @@ class App extends React.Component<AppProps, AppState> {
 
 }
 
-const mapStateToProps = (state: TextsReducerState, ownProps: any) => {
+const mapStateToProps = (state: TextsReducerState) => {
   const texts = state.texts;
   return { texts };
 };

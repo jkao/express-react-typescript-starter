@@ -1,50 +1,21 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createBrowserHistory } from 'history';
-import { ConnectedRouter, routerReducer, routerMiddleware } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import { Route } from 'react-router';
-import { Link } from 'react-router-dom';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 
 import '@blueprintjs/core/lib/css/blueprint.css';
 
-import { App } from './components/App';
-import { About } from './components/About';
-import { todosReducer } from './reducers/todos-reducer';
+import App from './components/App';
+import { TextsReducerState, textsReducer } from './reducers/texts-reducer';
 
-const history = createBrowserHistory();
-
-const middleware = routerMiddleware(history);
-
-const allReducers = combineReducers({
-  todosReducer,
-  routing: routerReducer,
-});
-
-const store = createStore(
-  allReducers,
-  applyMiddleware(middleware),
+type StoreState = TextsReducerState;
+const store = createStore<StoreState>(
+  textsReducer
 );
 
-// TODO(jeffk): debug
-history.listen(location => console.log(location));
-
-const root: HTMLElement = document.getElementById('root') as HTMLElement;
-const renderedHTML = (
+ReactDOM.render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <div>
-        <div>
-          <Link to='/'>Root</Link>
-          <Link to='/about'>About</Link>
-        </div>
-
-        <Route exact={true} path='/' component={App} />
-        <Route exact={true} path='/about' component={About} />
-      </div>
-    </ConnectedRouter>
-  </Provider>
+    <App />
+  </Provider>,
+  document.getElementById('root') as HTMLElement
 );
-
-ReactDOM.render(renderedHTML, root);
